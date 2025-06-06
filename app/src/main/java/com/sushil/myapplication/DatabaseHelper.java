@@ -1,0 +1,143 @@
+package com.sushil.myapplication;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+
+public class DatabaseHelper extends SQLiteOpenHelper {
+
+    private static final String DATABASE_NAME = "expense_tracker.db";
+    private static final int DATABASE_VERSION = 2;  // Incremented version for upgrade
+
+    // Tables
+    private static final String TABLE_GROUPS = "groups";
+    private static final String TABLE_MEMBERS = "members";
+    private static final String TABLE_EXPENSES = "expenses";
+
+    // Groups Table Columns
+    private static final String COLUMN_GROUP_ID = "id";
+    private static final String COLUMN_GROUP_NAME = "group_name";
+
+    // Members Table Columns
+    private static final String COLUMN_MEMBER_ID = "id";
+    private static final String COLUMN_MEMBER_NAME = "member_name";
+    private static final String COLUMN_MEMBER_GROUP_ID = "group_id";
+
+    // Expenses Table Columns
+    private static final String COLUMN_EXPENSE_ID = "id";
+    private static final String COLUMN_DESCRIPTION = "description";
+    private static final String COLUMN_AMOUNT = "amount";
+    private static final String COLUMN_PAID_BY = "paid_by";
+    private static final String COLUMN_DATE = "date";
+    private static final String COLUMN_GROUP_ID_FK = "group_id";
+    private static final String COLUMN_PAID_FOR = "paid_for";
+
+    public DatabaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        String createGroupsTable = "CREATE TABLE " + TABLE_GROUPS + " (" +
+                COLUMN_GROUP_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_GROUP_NAME + " TEXT NOT NULL UNIQUE);";
+
+        String createMembersTable = "CREATE TABLE " + TABLE_MEMBERS + " (" +
+                COLUMN_MEMBER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_MEMBER_NAME + " TEXT NOT NULL, " +
+                COLUMN_MEMBER_GROUP_ID + " INTEGER NOT NULL, " +
+                "FOREIGN KEY(" + COLUMN_MEMBER_GROUP_ID + ") REFERENCES " + TABLE_GROUPS + "(" + COLUMN_GROUP_ID + ") ON DELETE CASCADE);";
+
+        String createExpensesTable = "CREATE TABLE " + TABLE_EXPENSES + " (" +
+                COLUMN_EXPENSE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_DESCRIPTION + " TEXT NOT NULL, " +
+                COLUMN_AMOUNT + " REAL NOT NULL, " +
+                COLUMN_PAID_BY + " TEXT NOT NULL, " +
+                COLUMN_DATE + " TEXT NOT NULL, " +
+                COLUMN_GROUP_ID_FK + " INTEGER NOT NULL, " +
+                COLUMN_PAID_FOR + " TEXT NOT NULL, " +
+                "FOREIGN KEY(" + COLUMN_GROUP_ID_FK + ") REFERENCES " + TABLE_GROUPS + "(" + COLUMN_GROUP_ID + ") ON DELETE CASCADE);";
+
+        db.execSQL(createGroupsTable);
+        db.execSQL(createMembersTable);
+        db.execSQL(createExpensesTable);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Drop older tables if exist
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_EXPENSES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_MEMBERS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_GROUPS);
+        onCreate(db);
+    }
+
+    // Insert new group
+    public long insertGroup(String groupName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_GROUP_NAME, groupName);
+
+        return db.insert(TABLE_GROUPS, null, values);
+    }
+
+    // Insert new member linked to a group
+    public long insertMember(long groupId, String memberName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_MEMBER_NAME, memberName);
+        values.put(COLUMN_MEMBER_GROUP_ID, groupId);
+
+        return db.insert(TABLE_MEMBERS, null, values);
+    }
+
+    // Insert new expense
+    public long insertExpense(String description, double amount, String paidBy, String date, long groupId, String paidFor) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_DESCRIPTION, description);
+        values.put(COLUMN_AMOUNT, amount);
+        values.put(COLUMN_PAID_BY, paidBy);
+        values.put(COLUMN_DATE, date);
+        values.put(COLUMN_GROUP_ID_FK, groupId);
+        values.put(COLUMN_PAID_FOR, paidFor);
+
+        return db.insert(TABLE_EXPENSES, null, values);
+    }
+
+    // Delete group and cascade delete members and expenses (make sure foreign keys enabled)
+    public void deleteGroup(long groupId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_GROUPS, COLUMN_GROUP_ID + "=?", new String[]{String.valueOf(groupId)});
+    }
+
+    // Get members by groupId
+    public ArrayList<String> getMembersByGroup(long groupId) {
+        ArrayList<String> members = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(
+                "SELECT " + COLUMN_MEMBER_NAME + " FROM " + TABLE_MEMBERS +
+                        " WHERE " + COLUMN_MEMBER_GROUP_ID + " = ?", new String[]{String.valueOf(groupId)});
+
+        if (cursor.moveToFirst()) {
+            do {
+                String memberName = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MEMBER_NAME));
+                members.add(memberName);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return members;
+    }
+
+    // Optional: get all groups (returns Cursor)
+    public Cursor getAllGroups() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_GROUPS, null);
+    }
+
+}

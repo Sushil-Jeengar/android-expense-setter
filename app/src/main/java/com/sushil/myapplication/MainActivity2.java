@@ -1,0 +1,103 @@
+package com.sushil.myapplication;
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import java.util.ArrayList;
+
+public class MainActivity2 extends AppCompatActivity {
+
+    private EditText etGroupName, etMemberName;
+    private ArrayList<String> memberList;
+    private ArrayAdapter<String> adapter;
+    private DatabaseHelper dbHelper;
+
+    @SuppressLint("MissingInflatedId")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+
+        // Handle padding for status bar and nav bar
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        // UI elements
+        ImageButton backButton = findViewById(R.id.imageButton);
+        etGroupName = findViewById(R.id.etGroupName);
+        etMemberName = findViewById(R.id.etMemberName);
+        Button btnAddMember = findViewById(R.id.btnAddMember);
+        Button btnViewGroups = findViewById(R.id.btnViewGroups);
+        LinearLayout btnCreateGroup = findViewById(R.id.btnCreateGroup);
+        ListView memberListView = findViewById(R.id.memberListView);
+
+        // Initialize DB and member list
+        dbHelper = new DatabaseHelper(this);
+        memberList = new ArrayList<>();
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, memberList);
+        memberListView.setAdapter(adapter);
+
+        // Go back
+        backButton.setOnClickListener(v -> onBackPressed());
+
+        // Add member
+        btnAddMember.setOnClickListener(v -> {
+            String name = etMemberName.getText().toString().trim();
+            if (!name.isEmpty()) {
+                memberList.add(name);
+                adapter.notifyDataSetChanged();
+                etMemberName.setText("");
+                Toast.makeText(this, "Member added", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Enter member name", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Create group and save to DB
+        btnCreateGroup.setOnClickListener(v -> {
+            String groupName = etGroupName.getText().toString().trim();
+
+            if (groupName.isEmpty()) {
+                Toast.makeText(this, "Enter group name", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (memberList.isEmpty()) {
+                Toast.makeText(this, "Add at least one member", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            long groupId = dbHelper.insertGroup(groupName);
+            for (String member : memberList) {
+                dbHelper.insertMember(groupId, member);
+            }
+
+            Toast.makeText(this, "Group created!", Toast.LENGTH_SHORT).show();
+            etGroupName.setText("");
+            memberList.clear();
+            adapter.notifyDataSetChanged();
+        });
+
+        // View groups
+        btnViewGroups.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity2.this, ViewGroupsActivity.class);
+            startActivity(intent);
+        });
+    }
+}
