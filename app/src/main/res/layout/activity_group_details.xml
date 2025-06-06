@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <TextView
+        android:id="@+id/groupNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Group Name"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:paddingBottom="12dp" />
+
+
+
+    <ListView
+        android:id="@+id/memberListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:dividerHeight="1dp"
+        android:divider="@android:color/darker_gray" />
+
+
+    <Button
+        android:id="@+id/btnViewBalances"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#14B8A6"
+        android:text="View Balances" />
+
+</LinearLayout>
