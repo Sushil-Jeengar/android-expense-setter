@@ -42,7 +42,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createGroupsTable = "CREATE TABLE " + TABLE_GROUPS + " (" +
+        String createGroupsTable = "CREATE TABLE `groups` (" +
                 COLUMN_GROUP_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_GROUP_NAME + " TEXT NOT NULL UNIQUE);";
 
@@ -50,7 +50,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_MEMBER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_MEMBER_NAME + " TEXT NOT NULL, " +
                 COLUMN_MEMBER_GROUP_ID + " INTEGER NOT NULL, " +
-                "FOREIGN KEY(" + COLUMN_MEMBER_GROUP_ID + ") REFERENCES " + TABLE_GROUPS + "(" + COLUMN_GROUP_ID + ") ON DELETE CASCADE);";
+                "FOREIGN KEY(" + COLUMN_MEMBER_GROUP_ID + ") REFERENCES `groups`(" + COLUMN_GROUP_ID + ") ON DELETE CASCADE);";
 
         String createExpensesTable = "CREATE TABLE " + TABLE_EXPENSES + " (" +
                 COLUMN_EXPENSE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -60,7 +60,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_DATE + " TEXT NOT NULL, " +
                 COLUMN_GROUP_ID_FK + " INTEGER NOT NULL, " +
                 COLUMN_PAID_FOR + " TEXT NOT NULL, " +
-                "FOREIGN KEY(" + COLUMN_GROUP_ID_FK + ") REFERENCES " + TABLE_GROUPS + "(" + COLUMN_GROUP_ID + ") ON DELETE CASCADE);";
+                "FOREIGN KEY(" + COLUMN_GROUP_ID_FK + ") REFERENCES `groups`(" + COLUMN_GROUP_ID + ") ON DELETE CASCADE);";
 
         db.execSQL(createGroupsTable);
         db.execSQL(createMembersTable);
@@ -71,7 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_EXPENSES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_MEMBERS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_GROUPS);
+        db.execSQL("DROP TABLE IF EXISTS `groups`");
         onCreate(db);
     }
 
@@ -80,7 +80,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_GROUP_NAME, groupName);
-        return db.insert(TABLE_GROUPS, null, values);
+        return db.insert("`groups`", null, values);
     }
 
     // Insert new member linked to a group
@@ -108,7 +108,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Delete group and cascade delete members and expenses
     public void deleteGroup(long groupId) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_GROUPS, COLUMN_GROUP_ID + "=?", new String[]{String.valueOf(groupId)});
+        db.delete("`groups`", COLUMN_GROUP_ID + "=?", new String[]{String.valueOf(groupId)});
     }
 
     // Get members by groupId
@@ -132,7 +132,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Optional: get all groups
     public Cursor getAllGroups() {
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery("SELECT * FROM " + TABLE_GROUPS, null);
+        return db.rawQuery("SELECT * FROM `groups`", null);
     }
 
     // Get all expenses for a group

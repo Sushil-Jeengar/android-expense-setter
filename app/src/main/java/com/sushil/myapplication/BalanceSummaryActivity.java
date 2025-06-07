@@ -49,7 +49,7 @@ public class BalanceSummaryActivity extends AppCompatActivity {
                 "       e." + DatabaseHelper.COLUMN_DESCRIPTION + ", " +
                 "       g." + DatabaseHelper.COLUMN_GROUP_NAME  + "  AS group_name " +
                 "FROM "   + DatabaseHelper.TABLE_EXPENSES + " e " +
-                "JOIN "   + DatabaseHelper.TABLE_GROUPS   + " g " +
+                "JOIN `groups` g " +
                 "  ON e." + DatabaseHelper.COLUMN_GROUP_ID_FK + " = g." + DatabaseHelper.COLUMN_GROUP_ID +
                 " WHERE e." + DatabaseHelper.COLUMN_GROUP_ID_FK + " = ?" +
                 " ORDER BY e." + DatabaseHelper.COLUMN_DATE + " DESC";
