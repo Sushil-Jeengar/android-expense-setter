@@ -70,7 +70,8 @@ public class BalanceSummaryActivity extends AppCompatActivity {
         c.close();
 
         if (expenseAdapter == null) {
-            expenseAdapter = new ExpenseAdapter(this, expenseItems);
+            expenseAdapter = new ExpenseAdapter(this, expenseItems, groupId);
+
             expenseListView.setAdapter(expenseAdapter);
         } else {
             expenseAdapter.notifyDataSetChanged();
@@ -79,7 +80,7 @@ public class BalanceSummaryActivity extends AppCompatActivity {
         emptyView.setVisibility(expenseItems.isEmpty() ? View.VISIBLE : View.GONE);
     }
 
-    /** Simple model for one expense row */
+
     public static class ExpenseItem {
         public final double amount;
         public final String paidBy;

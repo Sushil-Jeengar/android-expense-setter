@@ -24,7 +24,7 @@ public class ViewGroupsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_groups);
 
-        Button backButton = findViewById(R.id.backButton);  // Make sure this exists in your layout XML
+        Button backButton = findViewById(R.id.backButton);
         groupListView = findViewById(R.id.groupListView);
 
         dbHelper = new DatabaseHelper(this);
@@ -37,11 +37,11 @@ public class ViewGroupsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        loadGroups();  // Refresh group list when returning to this activity
+        loadGroups();
     }
 
     private void loadGroups() {
-        // Query groups table: use correct table and column names as defined in DatabaseHelper
+
         Cursor cursor = dbHelper.getReadableDatabase()
                 .rawQuery("SELECT id, group_name FROM groups", null);
 
@@ -64,7 +64,7 @@ public class ViewGroupsActivity extends AppCompatActivity {
         );
         groupListView.setAdapter(adapter);
 
-        // On tap: open GroupDetailsActivity with group info
+
         groupListView.setOnItemClickListener((adapterView, view, position, id) -> {
             long selectedGroupId = groupIds.get(position);
             String numberedName = groupNames.get(position);
@@ -78,7 +78,7 @@ public class ViewGroupsActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // On long tap: confirm and delete group
+
         groupListView.setOnItemLongClickListener((adapterView, view, position, id) -> {
             long selectedGroupId = groupIds.get(position);
             String selectedGroupName = groupNames.get(position);
@@ -93,7 +93,7 @@ public class ViewGroupsActivity extends AppCompatActivity {
                     .setNegativeButton("No", null)
                     .show();
 
-            return true;  // Consume the long click event
+            return true;
         });
     }
 }

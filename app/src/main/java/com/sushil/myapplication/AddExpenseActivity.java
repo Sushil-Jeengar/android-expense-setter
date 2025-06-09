@@ -86,7 +86,7 @@ public class AddExpenseActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_multiple_choice, groupMembers);
         listViewMembers.setAdapter(adapter);
 
-        selectedMembers.clear();  // clear previous selection
+        selectedMembers.clear();
 
         for (int i = 0; i < groupMembers.size(); i++) {
             listViewMembers.setItemChecked(i, true);
@@ -138,7 +138,7 @@ public class AddExpenseActivity extends AppCompatActivity {
         if (expenseId != -1) {
             Toast.makeText(this, "Expense added successfully", Toast.LENGTH_SHORT).show();
 
-            // Navigate back to GroupDetailsActivity with groupId
+
             Intent intent = new Intent(AddExpenseActivity.this, GroupDetailsActivity.class);
             intent.putExtra("groupId", groupId);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);

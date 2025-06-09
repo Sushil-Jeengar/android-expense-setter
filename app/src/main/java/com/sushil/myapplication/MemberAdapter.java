@@ -57,7 +57,7 @@ public class MemberAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         final String member = members.get(position);
-        final int pos = position;  // capture for use in listener
+        final int pos = position;
 
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.member_list_item, parent, false);
@@ -72,7 +72,7 @@ public class MemberAdapter extends BaseAdapter {
 
         holder.memberNameTextView.setText(member);
 
-        // Clear any existing listeners to avoid multiple firing
+
         holder.deleteButton.setOnClickListener(null);
 
         holder.deleteButton.setOnClickListener(v -> {

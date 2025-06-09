@@ -79,7 +79,7 @@ public class GroupDetailsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // Refresh member list every time the activity resumes
+
         loadMembers();
     }
 }

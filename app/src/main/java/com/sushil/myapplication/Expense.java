@@ -5,7 +5,7 @@ public class Expense {
     private String description;
     private double amount;
     private String date;
-    private String paidBy; // Changed to String to match your DB's paid_by TEXT column
+    private String paidBy;
     private long groupId;
 
     public Expense(long id, String description, double amount, String date, String paidBy, long groupId) {
@@ -17,7 +17,7 @@ public class Expense {
         this.groupId = groupId;
     }
 
-    // Getters
+
     public long getId() { return id; }
     public String getDescription() { return description; }
     public double getAmount() { return amount; }
@@ -25,7 +25,7 @@ public class Expense {
     public String getPaidBy() { return paidBy; }
     public long getGroupId() { return groupId; }
 
-    // Setters
+
     public void setId(long id) { this.id = id; }
     public void setDescription(String description) { this.description = description; }
     public void setAmount(double amount) { this.amount = amount; }

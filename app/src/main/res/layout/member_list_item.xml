@@ -21,19 +21,21 @@
         android:id="@+id/addExpenseButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Expense"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="#14B8A6"
+        android:contentDescription="Add expense for this member"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:contentDescription="Add expense for this member" />
+        android:text="Add Expense" />
 
     <Button
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Delete"
-        android:focusable="false"
+        android:backgroundTint="#14B8A6"
+        android:contentDescription="Delete this member"
 
+        android:focusable="false"
         android:focusableInTouchMode="false"
-        android:contentDescription="Delete this member" />
+        android:text="Delete" />
 </LinearLayout>

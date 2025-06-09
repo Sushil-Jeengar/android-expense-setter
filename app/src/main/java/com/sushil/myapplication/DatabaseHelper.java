@@ -7,27 +7,28 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "expense_tracker.db";
     public static final int DATABASE_VERSION = 2;
 
-    // Tables
+
     public static final String TABLE_GROUPS = "groups";
     public static final String TABLE_MEMBERS = "members";
     public static final String TABLE_EXPENSES = "expenses";
 
-    // Groups Table Columns
+
     public static final String COLUMN_GROUP_ID = "id";
     public static final String COLUMN_GROUP_NAME = "group_name";
 
-    // Members Table Columns
+
     public static final String COLUMN_MEMBER_ID = "id";
     public static final String COLUMN_MEMBER_NAME = "member_name";
     public static final String COLUMN_MEMBER_GROUP_ID = "group_id";
 
-    // Expenses Table Columns
+
     public static final String COLUMN_EXPENSE_ID = "id";
     public static final String COLUMN_DESCRIPTION = "description";
     public static final String COLUMN_AMOUNT = "amount";
@@ -75,7 +76,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    // Insert new group
+
     public long insertGroup(String groupName) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -83,7 +84,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.insert("`groups`", null, values);
     }
 
-    // Insert new member linked to a group
+
     public long insertMember(long groupId, String memberName) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -92,7 +93,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.insert(TABLE_MEMBERS, null, values);
     }
 
-    // Insert new expense
+
     public long insertExpense(String description, double amount, String paidBy, String date, long groupId, String paidFor) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -105,13 +106,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.insert(TABLE_EXPENSES, null, values);
     }
 
-    // Delete group and cascade delete members and expenses
+
     public void deleteGroup(long groupId) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete("`groups`", COLUMN_GROUP_ID + "=?", new String[]{String.valueOf(groupId)});
     }
 
-    // Get members by groupId
+
     public ArrayList<String> getMembersByGroup(long groupId) {
         ArrayList<String> members = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
@@ -129,16 +130,49 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return members;
     }
 
-    // Optional: get all groups
+
     public Cursor getAllGroups() {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM `groups`", null);
     }
 
-    // Get all expenses for a group
+
     public Cursor getExpensesByGroup(long groupId) {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_EXPENSES + " WHERE " + COLUMN_GROUP_ID_FK + " = ?",
                 new String[]{String.valueOf(groupId)});
+    }
+
+
+    public HashMap<String, Double> calculateNetBalances(long groupId) {
+        HashMap<String, Double> balances = new HashMap<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT " + COLUMN_PAID_BY + ", " + COLUMN_PAID_FOR + ", " + COLUMN_AMOUNT +
+                " FROM " + TABLE_EXPENSES +
+                " WHERE " + COLUMN_GROUP_ID_FK + " = ?", new String[]{String.valueOf(groupId)});
+
+        if (cursor.moveToFirst()) {
+            do {
+                String paidBy = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAID_BY));
+                String paidForRaw = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PAID_FOR));
+                double amount = cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN_AMOUNT));
+
+                String[] paidForList = paidForRaw.split(",");
+                double share = amount / paidForList.length;
+
+
+                balances.put(paidBy, balances.getOrDefault(paidBy, 0.0) + amount);
+
+
+                for (String member : paidForList) {
+                    member = member.trim();
+                    balances.put(member, balances.getOrDefault(member, 0.0) - share);
+                }
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return balances;
     }
 }

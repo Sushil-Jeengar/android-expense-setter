@@ -31,14 +31,14 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        // Handle padding for status bar and nav bar
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // UI elements
+
         ImageButton backButton = findViewById(R.id.imageButton);
         etGroupName = findViewById(R.id.etGroupName);
         etMemberName = findViewById(R.id.etMemberName);
@@ -47,16 +47,16 @@ public class MainActivity2 extends AppCompatActivity {
         LinearLayout btnCreateGroup = findViewById(R.id.btnCreateGroup);
         ListView memberListView = findViewById(R.id.memberListView);
 
-        // Initialize DB and member list
+
         dbHelper = new DatabaseHelper(this);
         memberList = new ArrayList<>();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, memberList);
         memberListView.setAdapter(adapter);
 
-        // Go back
+
         backButton.setOnClickListener(v -> onBackPressed());
 
-        // Add member
+
         btnAddMember.setOnClickListener(v -> {
             String name = etMemberName.getText().toString().trim();
             if (!name.isEmpty()) {
@@ -69,7 +69,7 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-        // Create group and save to DB
+
         btnCreateGroup.setOnClickListener(v -> {
             String groupName = etGroupName.getText().toString().trim();
 
@@ -94,7 +94,7 @@ public class MainActivity2 extends AppCompatActivity {
             adapter.notifyDataSetChanged();
         });
 
-        // View groups
+
         btnViewGroups.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity2.this, ViewGroupsActivity.class);
             startActivity(intent);
