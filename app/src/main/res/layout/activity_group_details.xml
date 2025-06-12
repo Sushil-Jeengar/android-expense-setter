@@ -5,35 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#FFFFFF">
 
-
+    <!-- Group Name Header -->
     <TextView
         android:id="@+id/groupNameTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Group Name"
-        android:textSize="22sp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:paddingBottom="12dp" />
+        android:textColor="#222222"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp" />
 
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"
+        android:layout_marginBottom="8dp" />
 
-
+    <!-- Member List -->
     <ListView
         android:id="@+id/memberListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp"
-        android:divider="@android:color/darker_gray" />
+        android:background="#F9F9F9"
+        android:padding="8dp" />
 
-
+    <!-- Button -->
     <Button
         android:id="@+id/btnViewBalances"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="#14B8A6"
-        android:text="View Balances" />
+        android:text="View Balances"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:elevation="4dp" />
 
 </LinearLayout>

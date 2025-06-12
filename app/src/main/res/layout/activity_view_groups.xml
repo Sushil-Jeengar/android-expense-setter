@@ -1,31 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="16dp"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="16dp">
 
+    <!-- Title -->
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Groups"
+        android:text="Your Groups"
         android:textStyle="bold"
-        android:textSize="20sp" />
+        android:textSize="22sp"
+        android:textColor="#1E293B"
+        android:paddingBottom="12dp" />
 
+    <!-- List of Groups -->
     <ListView
         android:id="@+id/groupListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="10dp" />
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:background="#F8FAFC"
+        android:padding="4dp" />
 
+    <!-- Back Button -->
     <Button
         android:id="@+id/backButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="4dp"
         android:backgroundTint="#14B8A6"
         android:text="Back"
-        android:layout_marginTop="12dp" />
-
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
 </LinearLayout>

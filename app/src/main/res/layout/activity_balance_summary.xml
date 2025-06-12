@@ -1,25 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/balanceSummaryLayout"
-    android:orientation="vertical"
-    android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvBalanceSummaryHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Balance Summary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#222222"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp" />
 
     <ListView
         android:id="@+id/balanceListView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/tvBalanceSummaryHeader"
+        android:layout_marginTop="8dp"
+        android:divider="#DDDDDD"
+        android:dividerHeight="1dp"
+        android:background="@android:color/white"
+        android:padding="4dp" />
 
     <TextView
         android:id="@+id/balanceEmptyView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="No balances to show"
+        android:textSize="16sp"
+        android:textColor="#999999"
+        android:gravity="center"
+        android:padding="16dp"
         android:visibility="gone"
-        android:textAlignment="center"
-        android:padding="16dp" />
-
-</LinearLayout>
+        android:layout_centerInParent="true" />
+</RelativeLayout>

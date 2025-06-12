@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="16dp"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="16dp">
 
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvSummaryTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Debt Summary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#1E293B"
+        android:paddingBottom="12dp" />
+
+    <!-- List of Settlements -->
     <ListView
         android:id="@+id/summarySettleListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:dividerHeight="8dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:background="#F8FAFC"
+        android:padding="4dp" />
+
 </LinearLayout>
