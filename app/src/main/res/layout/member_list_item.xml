@@ -5,51 +5,47 @@
     android:orientation="horizontal"
     android:gravity="center_vertical"
     android:padding="12dp"
-    android:background="?android:attr/selectableItemBackground"
-    android:layout_marginHorizontal="8dp"
-    android:layout_marginTop="6dp"
-    android:elevation="1dp"
-    android:backgroundTint="#F8FAFC">
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginTop="8dp"
+    android:elevation="2dp"
+    android:background="@drawable/member_card_background"
+    android:clipToPadding="false">
 
     <!-- Member Name -->
     <TextView
         android:id="@+id/memberNameTextView"
         android:layout_width="0dp"
-        android:layout_weight="1"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="Member Name"
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="#1E293B" />
 
     <!-- Add Expense Button -->
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/addExpenseButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:backgroundTint="#14B8A6"
         android:text="Add"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
-        android:elevation="1dp"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
+        android:background="@drawable/rounded_button_teal"
+        android:layout_marginEnd="8dp"
+        android:elevation="2dp"
         android:focusable="false"
         android:focusableInTouchMode="false" />
 
     <!-- Delete Button -->
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#EF4444"
         android:text="Delete"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
-        android:elevation="1dp"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
+        android:background="@drawable/rounded_button_teal"
+        android:elevation="2dp"
         android:focusable="false"
         android:focusableInTouchMode="false" />
 </LinearLayout>

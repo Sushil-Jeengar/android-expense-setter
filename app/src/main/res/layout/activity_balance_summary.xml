@@ -3,38 +3,42 @@
     android:id="@+id/balanceSummaryLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFAFA"
-    android:padding="16dp">
+    android:background="#FFFFFF"
+    android:padding="20dp">
 
+    <!-- Header -->
     <TextView
         android:id="@+id/tvBalanceSummaryHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Balance Summary"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold"
-        android:textColor="#222222"
+        android:textColor="#1E293B"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="12dp" />
 
+    <!-- List of Balances -->
     <ListView
         android:id="@+id/balanceListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/tvBalanceSummaryHeader"
-        android:layout_marginTop="8dp"
-        android:divider="#DDDDDD"
+        android:layout_marginTop="12dp"
+        android:divider="#E5E7EB"
         android:dividerHeight="1dp"
-        android:background="@android:color/white"
-        android:padding="4dp" />
+        android:background="#F9FAFB"
+        android:padding="8dp"
+        android:listSelector="?android:attr/activatedBackgroundIndicator" />
 
+    <!-- Empty State Message -->
     <TextView
         android:id="@+id/balanceEmptyView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="No balances to show"
         android:textSize="16sp"
-        android:textColor="#999999"
+        android:textColor="#6B7280"
         android:gravity="center"
         android:padding="16dp"
         android:visibility="gone"

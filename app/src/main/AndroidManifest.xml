@@ -28,6 +28,8 @@
         <activity android:name=".AddExpenseActivity" />
         <activity android:name=".SummarySettleActivity"/>
         <activity android:name=".DebtSummaryActivity" />
+        <activity android:name=".AboutUsActivity" />
+
         <activity android:name=".BalanceSummaryActivity" />
 
 

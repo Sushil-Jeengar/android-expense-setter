@@ -1,73 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
-    android:orientation="vertical"
-    android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="20dp">
 
+    <!-- Back Button -->
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        android:src="@android:drawable/ic_menu_revert"
         android:contentDescription="Back Button"
-        android:src="@android:drawable/ic_media_previous" />
+        android:tint="#1E293B" />
 
+    <!-- Group Name -->
     <EditText
         android:id="@+id/etGroupName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:hint="Enter Group Name"
-        android:inputType="textPersonName"
-        android:layout_marginTop="16dp" />
+        android:backgroundTint="#14B8A6"
+        android:textColor="#000000"
+        android:inputType="textCapWords"
+        android:padding="12dp" />
 
+    <!-- Member Name -->
     <EditText
         android:id="@+id/etMemberName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:hint="Enter Member Name"
-        android:inputType="textPersonName"
-        android:layout_marginTop="8dp" />
+        android:backgroundTint="#14B8A6"
+        android:textColor="#000000"
+        android:inputType="textCapWords"
+        android:padding="12dp" />
 
+    <!-- Add Member Button -->
     <Button
         android:id="@+id/btnAddMember"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="#14B8A6"
-        android:text="Add Member" />
+        android:text="Add Member"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:cornerRadius="8dp" />
 
+    <!-- Member List -->
     <ListView
         android:id="@+id/memberListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="12dp"
         android:layout_weight="1"
-        android:layout_marginTop="8dp" />
+        android:divider="#E0E0E0"
+        android:dividerHeight="1dp" />
 
+    <!-- Create Group -->
     <LinearLayout
         android:id="@+id/btnCreateGroup"
         android:layout_width="match_parent"
-        android:layout_height="41dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/rounded_button"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Create Group"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
-
+    <!-- View Groups Button -->
     <Button
         android:id="@+id/btnViewGroups"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="#14B8A6"
-        android:text="View Groups" />
+        android:text="View Groups"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:cornerRadius="8dp" />
 
 </LinearLayout>

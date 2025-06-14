@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="20dp">
 
     <!-- Title -->
     <TextView
@@ -17,18 +17,27 @@
         android:textStyle="bold"
         android:textSize="22sp"
         android:textColor="#1E293B"
+        android:gravity="center"
         android:paddingBottom="12dp" />
 
-    <!-- List of Groups -->
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E5E7EB"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Group List -->
     <ListView
         android:id="@+id/groupListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:divider="@android:color/darker_gray"
+        android:divider="#E2E8F0"
         android:dividerHeight="1dp"
-        android:background="#F8FAFC"
-        android:padding="4dp" />
+        android:background="#F9FAFB"
+        android:padding="4dp"
+        android:listSelector="?android:attr/activatedBackgroundIndicator" />
 
     <!-- Back Button -->
     <Button
@@ -41,5 +50,6 @@
         android:text="Back"
         android:textColor="#FFFFFF"
         android:textAllCaps="false"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:padding="12dp" />
 </LinearLayout>

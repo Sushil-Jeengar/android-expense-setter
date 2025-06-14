@@ -14,10 +14,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_main);
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -25,9 +22,24 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        // New Group Button
         Button newGroupButton = findViewById(R.id.button7);
         newGroupButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            startActivity(intent);
+        });
+
+        // About Us Button
+        Button aboutUsButton = findViewById(R.id.button6);
+        aboutUsButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AboutUsActivity.class);
+            startActivity(intent);
+        });
+
+        // Groups Button - opens ViewGroupsActivity
+        Button groupsButton = findViewById(R.id.button4);
+        groupsButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ViewGroupsActivity.class);
             startActivity(intent);
         });
     }

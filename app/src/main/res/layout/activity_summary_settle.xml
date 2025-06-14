@@ -1,32 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main"
+    android:id="@+id/summarySettleLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF"
-    android:padding="16dp">
+    android:padding="20dp"
+    android:background="#FFFFFF">
 
-    <!-- Title -->
+    <!-- Header Title -->
     <TextView
         android:id="@+id/tvSummaryTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Debt Summary"
-        android:textSize="20sp"
+        android:text="Settlement Summary"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="#1E293B"
+        android:gravity="center"
         android:paddingBottom="12dp" />
 
-    <!-- List of Settlements -->
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E5E7EB"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Settlement List -->
     <ListView
         android:id="@+id/summarySettleListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:divider="@android:color/darker_gray"
+        android:divider="#E5E7EB"
         android:dividerHeight="1dp"
-        android:background="#F8FAFC"
-        android:padding="4dp" />
+        android:background="#F9FAFB"
+        android:padding="6dp"
+        android:listSelector="?android:attr/activatedBackgroundIndicator" />
 
+    <!-- Empty View (Optional) -->
+    <TextView
+        android:id="@+id/summaryEmptyView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nothing to settle!"
+        android:gravity="center"
+        android:textColor="#6B7280"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:padding="16dp"
+        android:textStyle="italic" />
 </LinearLayout>

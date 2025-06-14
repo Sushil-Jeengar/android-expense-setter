@@ -4,30 +4,37 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="?android:attr/selectableItemBackground"
-    android:elevation="2dp"
     android:layout_margin="8dp"
-    android:backgroundTint="#F1F5F9">
+    android:backgroundTint="#F1F5F9"
+    android:elevation="3dp"
+    android:background="@drawable/expense_card_background">
 
-    <!-- Payer Name -->
-    <TextView
-        android:id="@+id/tvPayerName"
-        android:layout_width="wrap_content"
+    <!-- Payer & Amount -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Paid by: Sushil"
-        android:textStyle="bold"
-        android:textColor="#111827"
-        android:textSize="16sp" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
-    <!-- Amount -->
-    <TextView
-        android:id="@+id/tvAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="₹ 500"
-        android:textSize="15sp"
-        android:textColor="#059669"
-        android:layout_marginTop="4dp" />
+        <TextView
+            android:id="@+id/tvPayerName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Paid by: Sushil"
+            android:textStyle="bold"
+            android:textColor="#111827"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="₹ 500"
+            android:textSize="15sp"
+            android:textColor="#059669"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <!-- Date -->
     <TextView
@@ -37,7 +44,7 @@
         android:text="Date: 09 June 2025"
         android:textSize="14sp"
         android:textColor="#64748B"
-        android:layout_marginTop="2dp" />
+        android:layout_marginTop="4dp" />
 
     <!-- Description -->
     <TextView
@@ -55,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Group: Roommates"
-        android:textSize="14sp"
+        android:textSize="13sp"
         android:textColor="#94A3B8"
         android:layout_marginTop="2dp" />
 
@@ -65,12 +72,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Balance Summary"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="#14B8A6"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:layout_gravity="end"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
         android:elevation="2dp" />
 </LinearLayout>
