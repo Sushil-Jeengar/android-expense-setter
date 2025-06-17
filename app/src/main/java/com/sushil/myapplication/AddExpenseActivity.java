@@ -60,6 +60,7 @@ public class AddExpenseActivity extends AppCompatActivity {
             return;
         }
 
+
         tvMemberName.setText("Paid by: " + paidByMember);
 
         loadGroupMembers();
@@ -78,6 +79,8 @@ public class AddExpenseActivity extends AppCompatActivity {
         });
 
         btnAddExpense.setOnClickListener(v -> addExpense());
+
+
     }
 
     private void loadGroupMembers() {

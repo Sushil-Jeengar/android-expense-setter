@@ -1,53 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/summarySettleLayout"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:padding="16dp">
 
-    <!-- Header Title -->
-    <TextView
-        android:id="@+id/tvSummaryTitle"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Settlement Summary"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="#1E293B"
-        android:gravity="center"
-        android:paddingBottom="12dp" />
+        android:orientation="vertical">
 
-    <!-- Divider -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#E5E7EB"
-        android:layout_marginBottom="10dp" />
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Debt Summary"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1E293B"
+            android:gravity="center"
+            android:paddingBottom="12dp" />
 
-    <!-- Settlement List -->
-    <ListView
-        android:id="@+id/summarySettleListView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:divider="#E5E7EB"
-        android:dividerHeight="1dp"
-        android:background="#F9FAFB"
-        android:padding="6dp"
-        android:listSelector="?android:attr/activatedBackgroundIndicator" />
+        <!-- Section Title: Net Balances -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Net Balances"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#0F172A"
+            android:paddingBottom="6dp" />
 
-    <!-- Empty View (Optional) -->
-    <TextView
-        android:id="@+id/summaryEmptyView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nothing to settle!"
-        android:gravity="center"
-        android:textColor="#6B7280"
-        android:textSize="16sp"
-        android:visibility="gone"
-        android:padding="16dp"
-        android:textStyle="italic" />
-</LinearLayout>
+        <!-- Card View -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_card_background"
+            android:padding="16dp"
+            android:elevation="3dp">
+
+            <!-- Net Balance Header -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="— Net balance per member —"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#1E293B"
+                android:paddingBottom="8dp" />
+
+            <!-- Dynamic balances container -->
+            <LinearLayout
+                android:id="@+id/balanceContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E5E7EB"
+                android:layout_marginVertical="12dp" />
+
+            <!-- Minimal Transactions Header -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="— Minimal transactions —"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#1E293B"
+                android:paddingBottom="8dp" />
+
+            <!-- Dynamic transactions container -->
+            <LinearLayout
+                android:id="@+id/transactionContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

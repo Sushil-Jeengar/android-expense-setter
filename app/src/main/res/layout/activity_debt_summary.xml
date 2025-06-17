@@ -13,13 +13,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Debt Summary"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="#1E293B"
         android:gravity="center"
-        android:paddingBottom="16dp" />
+        android:layout_marginBottom="16dp" />
 
-
+    <!-- Net Balances List -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Net Balances"
+        android:textSize="16sp"
+        android:textColor="#334155"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
 
     <ListView
         android:id="@+id/netBalanceListView"
@@ -28,16 +36,25 @@
         android:divider="#E5E7EB"
         android:dividerHeight="1dp"
         android:background="#F9FAFB"
-        android:padding="4dp"
-        android:nestedScrollingEnabled="true" />
+        android:padding="8dp" />
 
-    <!-- Divider Between Sections -->
+    <!-- Divider -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#D1D5DB"
-        android:layout_marginVertical="12dp" />
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="16dp" />
 
+    <!-- Settlement List -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Suggested Settlements"
+        android:textSize="16sp"
+        android:textColor="#334155"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
 
     <ListView
         android:id="@+id/settlementListView"
@@ -47,9 +64,9 @@
         android:divider="#E5E7EB"
         android:dividerHeight="1dp"
         android:background="#F9FAFB"
-        android:padding="4dp" />
+        android:padding="8dp" />
 
-    <!-- Empty State -->
+    <!-- Empty State Message -->
     <TextView
         android:id="@+id/tvDebtEmpty"
         android:layout_width="match_parent"
@@ -61,6 +78,5 @@
         android:textColor="#6B7280"
         android:textSize="15sp"
         android:padding="12dp"
-        android:layout_marginTop="8dp" />
-
+        android:layout_marginTop="12dp" />
 </LinearLayout>

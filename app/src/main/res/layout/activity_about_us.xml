@@ -13,21 +13,27 @@
 
         <!-- Heading -->
         <TextView
+            android:id="@+id/aboutHeading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="About This App"
-            android:textSize="24sp"
+            android:textSize="26sp"
             android:textStyle="bold"
             android:textColor="#1E293B"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="16dp"
+            android:textAlignment="center" />
 
         <!-- Description -->
         <TextView
+            android:id="@+id/aboutDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="This app helps users manage and track group expenses easily.\n\nYou can:\n• Create groups\n• Add members\n• Record expenses\n• View summaries\n• Settle debts quickly\n\nPerfect for trips, roommates, or any shared spending."
+            android:text="This app helps you manage and track group expenses effortlessly.\n\nFeatures:\n• Create groups\n• Add members\n• Record expenses\n• View summaries\n• Settle debts quickly and clearly\n\nPerfect for trips, roommates, or any shared spending scenarios."
             android:textSize="16sp"
-            android:lineSpacingExtra="6dp"
-            android:textColor="#475569" />
+            android:lineSpacingExtra="8dp"
+            android:textColor="#475569"
+            android:textAlignment="viewStart"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp" />
     </LinearLayout>
 </ScrollView>

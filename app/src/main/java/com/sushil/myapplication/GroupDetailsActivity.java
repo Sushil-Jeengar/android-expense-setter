@@ -14,15 +14,15 @@ import java.util.ArrayList;
 
 public class GroupDetailsActivity extends AppCompatActivity {
 
-    TextView groupNameTextView;
-    ListView memberListView;
-    Button btnViewBalances;
+    private TextView groupNameTextView;
+    private ListView memberListView;
+    private Button btnViewBalances;
 
-    DatabaseHelper dbHelper;
-    long groupId;
-    String groupName;
-    ArrayList<String> memberNames = new ArrayList<>();
-    MemberAdapter memberAdapter;
+    private DatabaseHelper dbHelper;
+    private long groupId;
+    private String groupName;
+    private final ArrayList<String> memberNames = new ArrayList<>();
+    private MemberAdapter memberAdapter;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -30,12 +30,15 @@ public class GroupDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_details);
 
+        // UI references
         groupNameTextView = findViewById(R.id.groupNameTextView);
         memberListView = findViewById(R.id.memberListView);
         btnViewBalances = findViewById(R.id.btnViewBalances);
 
+        // DB setup
         dbHelper = new DatabaseHelper(this);
 
+        // Get group data from intent
         Intent intent = getIntent();
         groupId = intent.getLongExtra("groupId", -1);
         groupName = intent.getStringExtra("groupName");
@@ -47,8 +50,11 @@ public class GroupDetailsActivity extends AppCompatActivity {
         btnViewBalances.setOnClickListener(v -> {
             Intent intent1 = new Intent(GroupDetailsActivity.this, BalanceSummaryActivity.class);
             intent1.putExtra("groupId", groupId);
+            intent1.putExtra("groupName", groupName);
             startActivity(intent1);
         });
+
+
     }
 
     private void loadMembers() {
@@ -61,8 +67,7 @@ public class GroupDetailsActivity extends AppCompatActivity {
 
         if (cursor.moveToFirst()) {
             do {
-                String name = cursor.getString(0);
-                memberNames.add(name);
+                memberNames.add(cursor.getString(0));
             } while (cursor.moveToNext());
         }
 
@@ -79,7 +84,6 @@ public class GroupDetailsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        loadMembers();
+        loadMembers(); // Refresh list when returning to this activity
     }
 }

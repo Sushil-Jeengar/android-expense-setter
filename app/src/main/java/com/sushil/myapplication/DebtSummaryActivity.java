@@ -26,6 +26,8 @@ public class DebtSummaryActivity extends AppCompatActivity {
         groupId   = getIntent().getLongExtra("groupId", -1);
 
         showDebtSummary();
+
+
     }
 
 

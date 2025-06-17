@@ -2,9 +2,11 @@ package com.sushil.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -16,31 +18,59 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        // ✅ Setup Toolbar
+        Toolbar toolbar = findViewById(R.id.mainToolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Groups");
+
+        // ✅ Apply system bar insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // New Group Button
-        Button newGroupButton = findViewById(R.id.button7);
-        newGroupButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-            startActivity(intent);
-        });
 
-        // About Us Button
-        Button aboutUsButton = findViewById(R.id.button6);
-        aboutUsButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, AboutUsActivity.class);
-            startActivity(intent);
-        });
+        // ✅ Button listeners
+        findViewById(R.id.button7).setOnClickListener(v ->
+                startActivity(new Intent(MainActivity.this, MainActivity2.class))
+        );
 
-        // Groups Button - opens ViewGroupsActivity
-        Button groupsButton = findViewById(R.id.button4);
-        groupsButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, ViewGroupsActivity.class);
-            startActivity(intent);
-        });
+        findViewById(R.id.button6).setOnClickListener(v ->
+                startActivity(new Intent(MainActivity.this, AboutUsActivity.class))
+        );
+
+        findViewById(R.id.button4).setOnClickListener(v ->
+                startActivity(new Intent(MainActivity.this, ViewGroupsActivity.class))
+        );
+
+
+    }
+
+    // ✅ Inflate menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    // ✅ Handle menu item clicks
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_share) {
+            shareApp();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    // ✅ Share app link
+    private void shareApp() {
+        String shareText = "Check out this app:\nhttps://play.google.com/store/apps/details?id=" + getPackageName();
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
+        startActivity(Intent.createChooser(shareIntent, "Share via"));
     }
 }

@@ -32,7 +32,12 @@ public class BalanceSummaryActivity extends AppCompatActivity {
         groupId  = getIntent().getLongExtra("groupId", -1);
 
         loadExpenses();
+
+
+
+
     }
+
 
     @Override
     protected void onResume() {

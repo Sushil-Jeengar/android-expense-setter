@@ -32,6 +32,8 @@ public class ViewGroupsActivity extends AppCompatActivity {
         backButton.setOnClickListener(v -> finish());
 
         loadGroups();
+
+
     }
 
     @Override

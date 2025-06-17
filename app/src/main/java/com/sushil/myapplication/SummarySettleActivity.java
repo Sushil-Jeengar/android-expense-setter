@@ -1,44 +1,57 @@
 package com.sushil.myapplication;
 
+import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class SummarySettleActivity extends AppCompatActivity {
 
-    @Override protected void onCreate(Bundle saved) {
-        super.onCreate(saved);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary_settle);
 
-        long   gid   = getIntent().getLongExtra("groupId", -1);
+        long gid = getIntent().getLongExtra("groupId", -1);
         String gName = getIntent().getStringExtra("groupName");
-        if (gName != null) setTitle("Balance • "+gName);
+        if (gName != null) setTitle("Balance • " + gName);
 
         DatabaseHelper db = new DatabaseHelper(this);
 
-
-        HashMap<String,Double> net = DebtSettleUtil.netPerMember(db, gid);
-
-
+        // Get net balance and transaction summary
+        HashMap<String, Double> net = DebtSettleUtil.netPerMember(db, gid);
         List<String> settle = DebtSettleUtil.minimalTransactions(net);
 
+        // You must replace static text views in XML with these containers:
+        LinearLayout balanceContainer = findViewById(R.id.balanceContainer);
+        LinearLayout transactionContainer = findViewById(R.id.transactionContainer);
 
-        List<String> rows = new ArrayList<>();
-        rows.add("── Net balance per member ──");
-        for (String m : net.keySet())
-            rows.add(m+" : "+String.format("%+.2f", net.get(m)));
-        rows.add("── Minimal transactions ──");
-        rows.addAll(settle);
+        // Dynamically add net balances
+        for (String member : net.keySet()) {
+            double amount = net.get(member);
+            TextView tv = new TextView(this);
+            tv.setText(member + " : " + String.format("%+.2f", amount));
+            tv.setTextColor(amount >= 0 ? Color.parseColor("#10B981") : Color.parseColor("#EF4444"));
+            tv.setTextSize(15);
+            tv.setPadding(0, 8, 0, 8);
+            balanceContainer.addView(tv);
+        }
+
+        // Dynamically add minimal transaction summary
+        for (String transaction : settle) {
+            TextView tv = new TextView(this);
+            tv.setText(transaction);
+            tv.setTextColor(Color.parseColor("#374151"));
+            tv.setTextSize(15);
+            tv.setPadding(0, 8, 0, 8);
+            transactionContainer.addView(tv);
+        }
 
 
-        ListView lv = findViewById(R.id.summarySettleListView);
-        lv.setAdapter(new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, rows));
     }
 }

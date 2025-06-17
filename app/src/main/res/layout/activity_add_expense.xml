@@ -4,12 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:padding="20dp">
+    android:padding="24dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal">
 
         <!-- Paid By -->
         <TextView
@@ -17,10 +19,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Paid by: Member"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textColor="#1E293B"
             android:textStyle="bold"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="20dp" />
 
         <!-- Description -->
         <EditText
@@ -32,31 +34,32 @@
             android:backgroundTint="#14B8A6"
             android:textColor="#000000"
             android:textSize="16sp"
-            android:padding="14dp" />
+            android:padding="14dp"
+            android:layout_marginBottom="14dp" />
 
         <!-- Amount -->
         <EditText
             android:id="@+id/etAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:hint="Enter amount"
             android:inputType="numberDecimal"
             android:backgroundTint="#14B8A6"
             android:textColor="#000000"
             android:textSize="16sp"
-            android:padding="14dp" />
+            android:padding="14dp"
+            android:layout_marginBottom="20dp" />
 
         <!-- Date Label -->
         <TextView
             android:id="@+id/tvDateLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:text="Select Date"
             android:textColor="#1E293B"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp" />
 
         <!-- Selected Date -->
         <TextView
@@ -66,11 +69,11 @@
             android:text="No date selected"
             android:background="@android:drawable/editbox_background"
             android:padding="14dp"
-            android:layout_marginTop="6dp"
             android:textColor="#000000"
             android:textSize="15sp"
             android:clickable="true"
-            android:focusable="true" />
+            android:focusable="true"
+            android:layout_marginBottom="24dp" />
 
         <!-- Member Selection Label -->
         <TextView
@@ -81,30 +84,31 @@
             android:textColor="#1E293B"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="6dp" />
+            android:layout_marginBottom="10dp" />
 
         <!-- Members List -->
         <ListView
             android:id="@+id/listViewMembers"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="300dp"
             android:divider="#E5E7EB"
             android:dividerHeight="1dp"
             android:background="#F9FAFB"
-            android:choiceMode="multipleChoice" />
+            android:choiceMode="multipleChoice"
+            android:layout_marginBottom="28dp" />
 
         <!-- Add Expense Button -->
         <Button
             android:id="@+id/btnAddExpense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
             android:backgroundTint="#14B8A6"
             android:text="Add Expense"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:padding="16dp" />
+            android:padding="16dp"
+            android:layout_marginTop="12dp"
+            android:elevation="4dp" />
     </LinearLayout>
 </ScrollView>

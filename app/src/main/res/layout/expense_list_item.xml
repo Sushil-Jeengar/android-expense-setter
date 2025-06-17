@@ -5,11 +5,11 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_margin="8dp"
-    android:backgroundTint="#F1F5F9"
     android:elevation="3dp"
-    android:background="@drawable/expense_card_background">
+    android:background="@drawable/expense_card_background"
+    android:backgroundTint="#F1F5F9">
 
-    <!-- Payer & Amount -->
+    <!-- 👤 Payer & 💰 Amount -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Date -->
+    <!-- 📅 Date -->
     <TextView
         android:id="@+id/tvDate"
         android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
         android:textColor="#64748B"
         android:layout_marginTop="4dp" />
 
-    <!-- Description -->
+    <!-- 📝 Description -->
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
@@ -56,27 +56,28 @@
         android:textColor="#374151"
         android:layout_marginTop="2dp" />
 
-    <!-- Group Name -->
+    <!-- 👥 Group Name Centered -->
     <TextView
         android:id="@+id/tvGroupName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Group: Roommates"
         android:textSize="13sp"
         android:textColor="#94A3B8"
-        android:layout_marginTop="2dp" />
+        android:layout_marginTop="6dp"
+        android:gravity="center" />
 
-    <!-- Balance Summary Button -->
+    <!-- 📊 Balance Summary Button (Centered) -->
     <Button
         android:id="@+id/btnBalanceSummary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Balance Summary"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="12dp"
         android:backgroundTint="#14B8A6"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
-        android:layout_gravity="end"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:paddingTop="8dp"

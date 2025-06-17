@@ -2,6 +2,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.sushil.myapplication.MainActivity">
+
+    <!-- Share Button (always visible in action bar) -->
+    <item
+        android:id="@+id/action_share"
+        android:icon="@android:drawable/ic_menu_share"
+        android:title="Share"
+        app:showAsAction="always" />
+
+    <!-- Settings (optional, hidden in overflow menu) -->
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
