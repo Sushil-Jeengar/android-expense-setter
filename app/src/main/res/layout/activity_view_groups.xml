@@ -16,17 +16,17 @@
         android:layout_height="wrap_content"
         android:text="Your Groups"
         android:textStyle="bold"
-        android:textSize="22sp"
+        android:textSize="24sp"
         android:textColor="#1E293B"
         android:gravity="center"
-        android:paddingBottom="12dp" />
+        android:paddingBottom="16dp" />
 
     <!-- 🔻 Divider -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#E5E7EB"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="12dp" />
 
     <!-- 📋 Group List -->
     <ListView
@@ -37,22 +37,24 @@
         android:divider="#E2E8F0"
         android:dividerHeight="1dp"
         android:background="#F9FAFB"
-        android:padding="8dp"
+        android:padding="12dp"
         android:clipToPadding="false"
         android:listSelector="?android:attr/activatedBackgroundIndicator"
-        android:elevation="1dp" />
+        android:elevation="2dp"
+        android:scrollbars="vertical" />
 
     <!-- 🔙 Back Button -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/backButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#14B8A6"
-        android:padding="12dp"
+        android:layout_marginTop="20dp"
         android:text="Back"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
-        app:cornerRadius="12dp" />
+        app:cornerRadius="12dp"
+        app:backgroundTint="#14B8A6"
+        app:iconPadding="8dp"
+        android:elevation="3dp" />
 </LinearLayout>

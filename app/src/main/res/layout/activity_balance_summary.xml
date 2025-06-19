@@ -5,8 +5,8 @@
     android:id="@+id/balanceSummaryLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:padding="24dp">
 
     <!-- Header -->
     <TextView
@@ -17,39 +17,42 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="#1E293B"
+        android:letterSpacing="0.05"
+        android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Empty State Message -->
+    <!-- Empty View Message -->
     <TextView
         android:id="@+id/balanceEmptyView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="No balances to show"
         android:textSize="16sp"
-        android:textColor="#6B7280"
+        android:textColor="#9CA3AF"
         android:gravity="center"
-        android:padding="16dp"
+        android:padding="20dp"
+        android:background="@drawable/bg_empty_state"
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/tvBalanceSummaryHeader"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-    <!-- List of Balances -->
+    <!-- Balance List -->
     <ListView
         android:id="@+id/balanceListView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:divider="#E5E7EB"
+        android:background="@drawable/bg_listview_card"
+        android:divider="@color/gray"
         android:dividerHeight="1dp"
-        android:background="#F9FAFB"
-        android:padding="8dp"
+        android:padding="12dp"
         android:listSelector="?android:attr/activatedBackgroundIndicator"
         app:layout_constraintTop_toBottomOf="@id/tvBalanceSummaryHeader"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

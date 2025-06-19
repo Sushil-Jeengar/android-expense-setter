@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:padding="24dp"
     android:background="#FFFFFF">
 
     <!-- Group Name Header -->
@@ -18,14 +19,15 @@
         android:textStyle="bold"
         android:textColor="#1E293B"
         android:gravity="center"
-        android:layout_marginBottom="12dp" />
+        android:layout_marginBottom="16dp"
+        android:letterSpacing="0.02" />
 
     <!-- Divider -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#E5E7EB"
-        android:layout_marginBottom="12dp" />
+        android:layout_marginBottom="16dp" />
 
     <!-- Member List -->
     <ListView
@@ -33,25 +35,26 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:divider="#E5E7EB"
+        android:divider="#D1D5DB"
         android:dividerHeight="1dp"
-        android:background="#F9FAFB"
-        android:padding="6dp"
-        android:clipToPadding="false" />
+        android:background="@drawable/bg_list_card"
+        android:padding="10dp"
+        android:clipToPadding="false"
+        android:listSelector="?android:attr/activatedBackgroundIndicator" />
 
     <!-- View Balances Button -->
     <Button
         android:id="@+id/btnViewBalances"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="12dp"
         android:backgroundTint="#14B8A6"
+        android:elevation="4dp"
+        android:padding="14dp"
         android:text="View Balances"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:paddingTop="14dp"
-        android:paddingBottom="14dp"
-        android:elevation="4dp" />
+        app:cornerRadius="12dp" />
 </LinearLayout>

@@ -5,78 +5,99 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="#FFFFFF">
+    android:background="#F9FAFB">
 
-    <!-- Header Title -->
+    <!-- 🧾 Header -->
     <TextView
         android:id="@+id/tvDebtTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Debt Summary"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:textStyle="bold"
-        android:textColor="#1E293B"
+        android:textColor="#111827"
         android:gravity="center"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="20dp" />
 
-    <!-- Net Balances List -->
+    <!-- 💰 Net Balances Label -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Net Balances"
         android:textSize="16sp"
-        android:textColor="#334155"
         android:textStyle="bold"
+        android:textColor="#1F2937"
         android:layout_marginBottom="8dp" />
 
-    <ListView
-        android:id="@+id/netBalanceListView"
+    <!-- 📋 Net Balances List -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="#E5E7EB"
-        android:dividerHeight="1dp"
-        android:background="#F9FAFB"
-        android:padding="8dp" />
+        android:background="@drawable/bg_card"
+        android:elevation="2dp"
+        android:padding="12dp"
+        android:orientation="vertical">
 
-    <!-- Divider -->
+        <ListView
+            android:id="@+id/netBalanceListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="#E5E7EB"
+            android:dividerHeight="1dp"
+            android:listSelector="@android:color/darker_gray"
+            android:background="@android:color/transparent" />
+    </LinearLayout>
+
+    <!-- 🔻 Divider -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#D1D5DB"
-        android:layout_marginTop="20dp"
+        android:background="#CBD5E1"
+        android:layout_marginTop="24dp"
         android:layout_marginBottom="16dp" />
 
-    <!-- Settlement List -->
+    <!-- 🔁 Settlement Label -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Suggested Settlements"
         android:textSize="16sp"
-        android:textColor="#334155"
         android:textStyle="bold"
+        android:textColor="#1F2937"
         android:layout_marginBottom="8dp" />
 
-    <ListView
-        android:id="@+id/settlementListView"
+    <!-- 🔄 Settlement List -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:divider="#E5E7EB"
-        android:dividerHeight="1dp"
-        android:background="#F9FAFB"
-        android:padding="8dp" />
+        android:background="@drawable/bg_card"
+        android:elevation="2dp"
+        android:padding="12dp"
+        android:orientation="vertical">
 
-    <!-- Empty State Message -->
+        <ListView
+            android:id="@+id/settlementListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#E5E7EB"
+            android:dividerHeight="1dp"
+            android:listSelector="@android:color/darker_gray"
+            android:background="@android:color/transparent" />
+    </LinearLayout>
+
+    <!-- ✅ Empty Message -->
     <TextView
         android:id="@+id/tvDebtEmpty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="All members are settled up!"
-        android:visibility="gone"
-        android:gravity="center"
+        android:textSize="15sp"
         android:textStyle="italic"
         android:textColor="#6B7280"
-        android:textSize="15sp"
-        android:padding="12dp"
-        android:layout_marginTop="12dp" />
+        android:gravity="center"
+        android:padding="14dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_empty_state"
+        android:visibility="gone" />
 </LinearLayout>

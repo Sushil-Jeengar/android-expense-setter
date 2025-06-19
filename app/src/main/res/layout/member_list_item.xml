@@ -3,11 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:gravity="center_vertical|center_horizontal"
+    android:gravity="center_vertical"
     android:padding="12dp"
     android:layout_marginHorizontal="12dp"
     android:layout_marginTop="8dp"
-    android:elevation="2dp"
+    android:elevation="3dp"
     android:background="@drawable/member_card_background"
     android:clipToPadding="false">
 
@@ -21,9 +21,10 @@
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="#1E293B"
-        android:gravity="center_vertical" />
+        android:maxLines="1"
+        android:ellipsize="end" />
 
-    <!-- ➕ Add Button -->
+    <!-- ➕ Add Expense Button -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/addExpenseButton"
         android:layout_width="wrap_content"
@@ -34,10 +35,9 @@
         android:textSize="14sp"
         android:background="@drawable/rounded_button_teal"
         android:layout_marginEnd="8dp"
-        android:paddingHorizontal="12dp"
-        android:elevation="2dp"
-        android:focusable="false"
-        android:focusableInTouchMode="false" />
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:elevation="2dp" />
 
     <!-- ❌ Delete Button -->
     <androidx.appcompat.widget.AppCompatButton
@@ -48,9 +48,8 @@
         android:text="Delete"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
-        android:background="@drawable/rounded_button_teal"
-        android:paddingHorizontal="12dp"
-        android:elevation="2dp"
-        android:focusable="false"
-        android:focusableInTouchMode="false" />
+        android:background="@drawable/rounded_button_red"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:elevation="2dp" />
 </LinearLayout>

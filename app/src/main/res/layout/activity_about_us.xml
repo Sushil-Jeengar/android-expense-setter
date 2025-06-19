@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F9FAFB"
-    android:padding="24dp">
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,29 +11,47 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <!-- Heading -->
-        <TextView
-            android:id="@+id/aboutHeading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="About This App"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            android:textColor="#1E293B"
-            android:layout_marginBottom="16dp"
-            android:textAlignment="center" />
-
-        <!-- Description -->
-        <TextView
-            android:id="@+id/aboutDescription"
+        <!-- Card Container -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="This app helps you manage and track group expenses effortlessly.\n\nFeatures:\n• Create groups\n• Add members\n• Record expenses\n• View summaries\n• Settle debts quickly and clearly\n\nPerfect for trips, roommates, or any shared spending scenarios."
-            android:textSize="16sp"
-            android:lineSpacingExtra="8dp"
-            android:textColor="#475569"
-            android:textAlignment="viewStart"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
+            android:background="@drawable/rounded_card_background"
+            android:orientation="vertical"
+            android:elevation="4dp"
+            android:padding="24dp"
+            android:layout_margin="8dp">
+
+            <!-- Optional App Icon -->
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="App Icon" />
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/aboutHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About This App"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#1E293B"
+                android:layout_gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Description -->
+            <TextView
+                android:id="@+id/aboutDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This app helps you manage and track group expenses effortlessly.\n\nFeatures:\n• Create groups\n• Add members\n• Record expenses\n• View summaries\n• Settle debts quickly and clearly\n\nPerfect for trips, roommates, or any shared spending scenarios.\n\nDesigned with simplicity and clarity in mind, Splid ensures you spend less time calculating and more time enjoying. With smart UI and real-time updates, you’ll never lose track of who owes what.\n\nWe’re constantly improving and adding new features based on your feedback. Your financial clarity is just a few taps away!"
+                android:textSize="16sp"
+                android:lineSpacingExtra="6dp"
+                android:textColor="#475569"
+                android:textAlignment="viewStart" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

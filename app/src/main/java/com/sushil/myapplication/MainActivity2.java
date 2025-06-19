@@ -7,7 +7,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -45,7 +44,7 @@ public class MainActivity2 extends AppCompatActivity {
         etMemberName = findViewById(R.id.etMemberName);
         Button btnAddMember = findViewById(R.id.btnAddMember);
         Button btnViewGroups = findViewById(R.id.btnViewGroups);
-        LinearLayout btnCreateGroup = findViewById(R.id.btnCreateGroup);
+        Button btnCreateGroup = findViewById(R.id.btnCreateGroup);
         ListView memberListView = findViewById(R.id.memberListView);
 
 

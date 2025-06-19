@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
-    android:layout_margin="8dp"
-    android:elevation="3dp"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginVertical="8dp"
+    android:elevation="4dp"
     android:background="@drawable/expense_card_background"
-    android:backgroundTint="#F1F5F9">
+    android:backgroundTint="#F8FAFC">
 
     <!-- 👤 Payer & 💰 Amount -->
     <LinearLayout
@@ -23,7 +25,7 @@
             android:layout_weight="1"
             android:text="Paid by: Sushil"
             android:textStyle="bold"
-            android:textColor="#111827"
+            android:textColor="#0F172A"
             android:textSize="16sp" />
 
         <TextView
@@ -32,8 +34,8 @@
             android:layout_height="wrap_content"
             android:text="₹ 500"
             android:textSize="15sp"
-            android:textColor="#059669"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#10B981" />
     </LinearLayout>
 
     <!-- 📅 Date -->
@@ -42,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Date: 09 June 2025"
-        android:textSize="14sp"
+        android:textSize="13.5sp"
         android:textColor="#64748B"
         android:layout_marginTop="4dp" />
 
@@ -53,10 +55,10 @@
         android:layout_height="wrap_content"
         android:text="Lunch at Canteen"
         android:textSize="14sp"
-        android:textColor="#374151"
+        android:textColor="#334155"
         android:layout_marginTop="2dp" />
 
-    <!-- 👥 Group Name Centered -->
+    <!-- 👥 Group Name -->
     <TextView
         android:id="@+id/tvGroupName"
         android:layout_width="match_parent"
@@ -67,20 +69,21 @@
         android:layout_marginTop="6dp"
         android:gravity="center" />
 
-    <!-- 📊 Balance Summary Button (Centered) -->
+    <!-- 📊 Balance Summary Button -->
     <Button
         android:id="@+id/btnBalanceSummary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Balance Summary"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="12dp"
         android:backgroundTint="#14B8A6"
+        android:elevation="2dp"
+        android:paddingStart="20dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="8dp"
+        android:text="Balance Summary"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:elevation="2dp" />
+        app:cornerRadius="12dp" />
 </LinearLayout>
