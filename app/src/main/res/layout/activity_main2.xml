@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:padding="24dp">
+    android:padding="20dp">
 
     <!-- 🔙 Back Button -->
     <ImageButton
@@ -18,9 +18,7 @@
         android:contentDescription="Back"
         android:tint="#1E293B"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/etGroupName"
-        android:layout_marginBottom="24dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- ✏️ Group Name -->
     <EditText
@@ -62,69 +60,78 @@
         android:text="Add Member"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
+        app:cornerRadius="16dp"
+        app:backgroundTint="#14B8A6"
+        android:elevation="4dp"
         android:paddingStart="32dp"
         android:paddingEnd="32dp"
         android:paddingTop="12dp"
         android:paddingBottom="12dp"
-        app:cornerRadius="16dp"
-        app:backgroundTint="#14B8A6"
-        android:elevation="4dp"
         app:layout_constraintTop_toBottomOf="@id/etMemberName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="16dp" />
 
     <!-- 👥 Member List -->
     <ListView
         android:id="@+id/memberListView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:divider="#E5E7EB"
+        android:divider="#E0E0E0"
         android:dividerHeight="1dp"
         android:background="#F9FAFB"
-        android:padding="6dp"
+        android:padding="8dp"
         android:clipToPadding="false"
         app:layout_constraintTop_toBottomOf="@id/btnAddMember"
-        app:layout_constraintBottom_toTopOf="@id/btnCreateGroup"
+        app:layout_constraintBottom_toTopOf="@id/buttonLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
 
-    <!-- ✅ Create Group Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnCreateGroup"
+    <!-- 🔘 Bottom Button Row: Create Group + View Groups -->
+    <LinearLayout
+        android:id="@+id/buttonLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Create Group"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:paddingTop="12dp"
-        android:paddingBottom="12dp"
-        app:cornerRadius="16dp"
-        app:backgroundTint="#14B8A6"
-        android:elevation="4dp"
-        app:layout_constraintBottom_toTopOf="@id/btnViewGroups"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="12dp" />
-
-    <!-- 📂 View Groups Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnViewGroups"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="View Groups"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:paddingTop="12dp"
-        android:paddingBottom="12dp"
-        app:cornerRadius="16dp"
-        app:backgroundTint="#14B8A6"
-        android:elevation="4dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="12dp"
+        android:background="#F1F5F9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- ✅ Create Group Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCreateGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Create Group"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            app:cornerRadius="16dp"
+            app:backgroundTint="#14B8A6"
+            android:layout_marginEnd="8dp" />
+
+        <!-- 📂 View Groups Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnViewGroups"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="View Groups"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            app:cornerRadius="16dp"
+            app:backgroundTint="#14B8A6"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
