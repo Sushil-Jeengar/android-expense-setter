@@ -82,7 +82,7 @@ public class MemberAdapter extends BaseAdapter {
                     .setMessage("Delete " + member + "?")
                     .setPositiveButton("Yes", (dialog, which) -> {
                         SQLiteDatabase db = dbHelper.getWritableDatabase();
-                        int deletedRows = db.delete("members", "name = ? AND group_id = ?", new String[]{member, String.valueOf(groupId)});
+                        int deletedRows = db.delete("members", "member_name = ? AND group_id = ?", new String[]{member, String.valueOf(groupId)});
                         Log.d("MemberAdapter", "Deleted rows: " + deletedRows);
                         if (deletedRows > 0) {
                             members.remove(pos);
@@ -95,6 +95,7 @@ public class MemberAdapter extends BaseAdapter {
                     .setNegativeButton("No", null)
                     .show();
         });
+
 
         holder.addExpenseButton.setOnClickListener(v -> {
             Intent intent = new Intent(context, AddExpenseActivity.class);
