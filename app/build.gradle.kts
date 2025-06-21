@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.sushil.myapplication"
+    namespace = "com.sushil.Splid"
     compileSdk = 35
 
     defaultConfig {

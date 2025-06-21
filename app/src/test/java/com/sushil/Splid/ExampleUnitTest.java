@@ -1,4 +1,4 @@
-package com.sushil.myapplication;
+package com.sushil.Splid;
 
 import org.junit.Test;
 

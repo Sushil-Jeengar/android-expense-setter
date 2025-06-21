@@ -1,4 +1,4 @@
-package com.sushil.myapplication;
+package com.sushil.Splid;
 
 import android.app.Activity;
 import android.app.Application;

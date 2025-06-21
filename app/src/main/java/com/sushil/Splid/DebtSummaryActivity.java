@@ -1,4 +1,4 @@
-package com.sushil.myapplication;
+package com.sushil.Splid;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;

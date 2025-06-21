@@ -1,4 +1,4 @@
-package com.sushil.myapplication;
+package com.sushil.Splid;
 
 import java.util.ArrayList;
 import java.util.HashMap;
