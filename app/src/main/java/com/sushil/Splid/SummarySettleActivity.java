@@ -23,15 +23,15 @@ public class SummarySettleActivity extends AppCompatActivity {
 
         DatabaseHelper db = new DatabaseHelper(this);
 
-        // Get net balance and transaction summary
+
         HashMap<String, Double> net = DebtSettleUtil.netPerMember(db, gid);
         List<String> settle = DebtSettleUtil.minimalTransactions(net);
 
-        // You must replace static text views in XML with these containers:
+
         LinearLayout balanceContainer = findViewById(R.id.balanceContainer);
         LinearLayout transactionContainer = findViewById(R.id.transactionContainer);
 
-        // Dynamically add net balances
+
         for (String member : net.keySet()) {
             double amount = net.get(member);
             TextView tv = new TextView(this);
@@ -42,7 +42,7 @@ public class SummarySettleActivity extends AppCompatActivity {
             balanceContainer.addView(tv);
         }
 
-        // Dynamically add minimal transaction summary
+
         for (String transaction : settle) {
             TextView tv = new TextView(this);
             tv.setText(transaction);

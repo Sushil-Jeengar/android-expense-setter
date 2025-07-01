@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- 🧾 Title -->
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
             android:gravity="center"
             android:paddingBottom="16dp" />
 
-        <!-- 💰 Net Balances Header -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             android:textColor="#0F172A"
             android:paddingBottom="10dp" />
 
-        <!-- 📦 Card View Container -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
             android:elevation="4dp"
             android:layout_marginTop="6dp">
 
-            <!-- 🧾 Net Balance Label -->
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,21 +51,21 @@
                 android:textColor="#1E293B"
                 android:paddingBottom="12dp" />
 
-            <!-- 🧮 Net Balances List -->
+
             <LinearLayout
                 android:id="@+id/balanceContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />
 
-            <!-- 🔻 Divider -->
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#E5E7EB"
                 android:layout_marginVertical="16dp" />
 
-            <!-- 🔄 Minimal Transactions Header -->
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                 android:textColor="#1E293B"
                 android:paddingBottom="12dp" />
 
-            <!-- 📊 Transactions List -->
+
             <LinearLayout
                 android:id="@+id/transactionContainer"
                 android:layout_width="match_parent"

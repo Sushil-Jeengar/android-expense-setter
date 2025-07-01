@@ -55,7 +55,7 @@ public class DebtSummaryActivity extends AppCompatActivity {
             }
         }
 
-        // 4) Bind to ListView
+
         settlementListView.setAdapter(
                 new ArrayAdapter<>(this,
                         android.R.layout.simple_list_item_1, rows));

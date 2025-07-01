@@ -53,7 +53,7 @@ public class AddExpenseActivity extends AppCompatActivity {
         groupId = intent.getLongExtra("groupId", -1);
         paidByMember = intent.getStringExtra("memberName");
 
-        // Validate intent data
+
         if (groupId == -1 || TextUtils.isEmpty(paidByMember)) {
             Toast.makeText(this, "Invalid data passed", Toast.LENGTH_SHORT).show();
             finish();

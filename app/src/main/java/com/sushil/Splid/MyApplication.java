@@ -7,7 +7,7 @@ import android.os.Handler;
 
 public class MyApplication extends Application {
 
-    private static final int RATING_POPUP_DELAY = 10000; // 10 sec
+    private static final int RATING_POPUP_DELAY = 10000;
     private static boolean ratingShown = false;
     private Activity currentActivity = null;
 

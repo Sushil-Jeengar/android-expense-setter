@@ -19,12 +19,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        // ✅ Setup Toolbar
+
         Toolbar toolbar = findViewById(R.id.mainToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Groups");
 
-        // ✅ Apply system bar insets
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        // ✅ Button listeners
+
         findViewById(R.id.button7).setOnClickListener(v ->
                 startActivity(new Intent(MainActivity.this, MainActivity2.class))
         );
@@ -48,14 +48,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // ✅ Inflate menu
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
-    // ✅ Handle menu item clicks
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_share) {
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    // ✅ Share app link
+
     private void shareApp() {
         String shareText = "Check out this app:\nhttps://play.google.com/store/apps/details?id=" + getPackageName();
         Intent shareIntent = new Intent(Intent.ACTION_SEND);

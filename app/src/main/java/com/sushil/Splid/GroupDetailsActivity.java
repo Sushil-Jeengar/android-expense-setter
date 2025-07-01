@@ -30,15 +30,15 @@ public class GroupDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_details);
 
-        // UI references
+
         groupNameTextView = findViewById(R.id.groupNameTextView);
         memberListView = findViewById(R.id.memberListView);
         btnViewBalances = findViewById(R.id.btnViewBalances);
 
-        // DB setup
+
         dbHelper = new DatabaseHelper(this);
 
-        // Get group data from intent
+
         Intent intent = getIntent();
         groupId = intent.getLongExtra("groupId", -1);
         groupName = intent.getStringExtra("groupName");
@@ -84,6 +84,6 @@ public class GroupDetailsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        loadMembers(); // Refresh list when returning to this activity
+        loadMembers();
     }
 }

@@ -8,7 +8,7 @@
     android:background="#FFFFFF"
     android:padding="24dp">
 
-    <!-- Header -->
+
     <TextView
         android:id="@+id/tvBalanceSummaryHeader"
         android:layout_width="wrap_content"
@@ -23,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Empty View Message -->
+
     <TextView
         android:id="@+id/balanceEmptyView"
         android:layout_width="0dp"
@@ -40,7 +40,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <!-- Balance List -->
+
     <ListView
         android:id="@+id/balanceListView"
         android:layout_width="0dp"

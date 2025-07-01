@@ -8,7 +8,7 @@
     android:background="#FFFFFF"
     android:padding="20dp">
 
-    <!-- 🔙 Back Button -->
+
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="36dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- ✏️ Group Name -->
+
     <EditText
         android:id="@+id/etGroupName"
         android:layout_width="0dp"
@@ -36,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
-    <!-- 👤 Member Name -->
+
     <EditText
         android:id="@+id/etMemberName"
         android:layout_width="0dp"
@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="12dp" />
 
-    <!-- ➕ Add Member Button -->
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAddMember"
         android:layout_width="wrap_content"
@@ -72,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
-    <!-- 👥 Member List -->
+
     <ListView
         android:id="@+id/memberListView"
         android:layout_width="0dp"
@@ -89,7 +89,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp" />
 
-    <!-- 🔘 Bottom Button Row: Create Group + View Groups -->
+
     <LinearLayout
         android:id="@+id/buttonLayout"
         android:layout_width="0dp"
@@ -102,7 +102,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- ✅ Create Group Button -->
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCreateGroup"
             android:layout_width="0dp"
@@ -118,7 +118,7 @@
             app:backgroundTint="#14B8A6"
             android:layout_marginEnd="8dp" />
 
-        <!-- 📂 View Groups Button -->
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnViewGroups"
             android:layout_width="0dp"

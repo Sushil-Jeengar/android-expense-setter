@@ -9,7 +9,7 @@
     android:padding="24dp"
     android:background="#FFFFFF">
 
-    <!-- Group Name Header -->
+
     <TextView
         android:id="@+id/groupNameTextView"
         android:layout_width="match_parent"
@@ -22,14 +22,14 @@
         android:layout_marginBottom="16dp"
         android:letterSpacing="0.02" />
 
-    <!-- Divider -->
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#E5E7EB"
         android:layout_marginBottom="16dp" />
 
-    <!-- Member List -->
+
     <ListView
         android:id="@+id/memberListView"
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
         android:clipToPadding="false"
         android:listSelector="?android:attr/activatedBackgroundIndicator" />
 
-    <!-- View Balances Button -->
+
     <Button
         android:id="@+id/btnViewBalances"
         android:layout_width="match_parent"

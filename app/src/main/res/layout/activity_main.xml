@@ -9,7 +9,7 @@
     android:background="#FFFFFF"
     tools:context=".MainActivity">
 
-    <!-- Top Toolbar -->
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mainToolbar"
         android:layout_width="0dp"
@@ -23,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Centered Group Content -->
+
     <LinearLayout
         android:id="@+id/centerContent"
         android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Illustration -->
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="140dp"
@@ -46,7 +46,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="16dp" />
 
-        <!-- Title -->
+
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="6dp" />
 
-        <!-- Subtext -->
+
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
@@ -69,7 +69,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="20dp" />
 
-        <!-- New Group Button -->
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button7"
             android:layout_width="wrap_content"
@@ -87,7 +87,7 @@
             android:elevation="4dp" />
     </LinearLayout>
 
-    <!-- Bottom Navigation Buttons -->
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"

@@ -11,7 +11,7 @@
     android:background="@drawable/expense_card_background"
     android:backgroundTint="#F8FAFC">
 
-    <!-- 👤 Payer & 💰 Amount -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             android:textColor="#10B981" />
     </LinearLayout>
 
-    <!-- 📅 Date -->
+
     <TextView
         android:id="@+id/tvDate"
         android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
         android:textColor="#64748B"
         android:layout_marginTop="4dp" />
 
-    <!-- 📝 Description -->
+
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
         android:textColor="#334155"
         android:layout_marginTop="2dp" />
 
-    <!-- 👥 Group Name -->
+
     <TextView
         android:id="@+id/tvGroupName"
         android:layout_width="match_parent"
@@ -69,7 +69,7 @@
         android:layout_marginTop="6dp"
         android:gravity="center" />
 
-    <!-- 📊 Balance Summary Button -->
+
     <Button
         android:id="@+id/btnBalanceSummary"
         android:layout_width="wrap_content"
